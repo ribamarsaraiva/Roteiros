@@ -1,0 +1,35 @@
+Dump PS5 Game Process
+0 - Requisitos:
+	0.1 - socat
+		https://github.com/tech128/socat-1.7.3.0-windows
+	0.2 - netcat 1.2
+		https://www.sendspace.com/file/xx34tb
+	0.3 - Decrypt payload sleirsgoevy
+		https://www.mediafire.com/file/w7c22tahuf6cueb/sleirs_dumper.zip/file
+	0.4 - Itemzflow Game Manager
+		https://pkg-zone.com/
+	0.5 - Dispositivo usb externo formatado com exfat e com espaço suficiente para o jogo
+	0.6 - makefself Scripts
+		https://www.mediafire.com/file/9uaec9cmjkv560t/makefself.zip/file
+	0.7 - python 3 instalado no windows
+	
+1 - Instalar e executar o jogo
+2 - Abrir o host do idlesauce
+3 - Desbloquear o PS5
+4 - Anotar o IP do PS5
+5 - Executar o netcat e colocar o IP do PS5 e a porta 9020 e arrastar o paylod do sleirsgoevy (item 0.3) para a janela
+6 - Abrir o prompt de comando na pasta do socat (item 0.1) e executar o comando:
+	socat -u -d -d -d TCP:ps5_ip(item 4):9023,reuseaddr OPEN:ra.tar,creat
+7 - Executar o comando do socat (item 6) e imediatamente injetar o payload do sleirsgoevy (item 5), o indicativo de que tudo deu certo é a linha abaixo
+	N exiting with status 0 (ao final)
+8 - A execução do item 7 irá gerar o arquivo ra.tar na pasta do socat, extraia a pasta PPSAXXXXX-app0 de dentro, essa pasta contem os executaveis e modulos decriptados, caso algum arquivo tenha tamanho zero bytes ou apareça algum erro é devido a esse jogo não ser possivel decriptar.
+9 - Executar o jailbreak novamente (item 2) e dessa vez executar o etahen
+10 - Instalar o itemzflow se ainda não estiver instalado
+11 - Executar o itemzflow
+12 - Selecionar o jogo que será feito o dump e apertar X, selecionar a opção Dump e altere o modo para <Dump All> e pressione X para começar o dump
+13 - As mensagens de progresso do dump devem acontecer de 6 em 6 segundos, assim que parar de aparecer essas mensagens deve indicar que o dump terminou, feche o jogo.
+14 - No dispositivo usb externo deve haver uma pasta PPSAXXXXX-app0 com modulos encriptados.
+15 - Substitua os arquivos no dispositivo usb com os arquivos o item 8
+16 - Copie os scripts do item 0.6 para a pasta PPSAXXXXX-app0 do dispositivo usb e execute o arquivo .bat
+17 - Remova os scripts da pasta PPSAXXXXX-app0 do dispositivo usb
+18 - Já pode usar o itemzflow para executar o jogo.
